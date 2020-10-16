@@ -1,5 +1,9 @@
 # CS1D-Project-2
 
+## Developers:
+* **Daniel Navarro** - [Sakezone](https://github.com/Sakezone)
+* **Isaac Guido** - [Aizeke](https://github.com/Aizeke)
+
 ## License
 
 MIT License
@@ -15,3 +19,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Acknowledgments
 
 - Jerry Lebowitz - Professor at Saddleback College
+
