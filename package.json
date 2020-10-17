@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "CS1D Software",
   "main": "main.js",
-  "dependencies": {},
+  "dependencies": {
+    "mysql": "^2.18.1"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.4.1",
     "@typescript-eslint/parser": "^4.4.1",
