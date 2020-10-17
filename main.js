@@ -2,8 +2,8 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1280,
+    height: 720,
     webPreferences: {
       nodeIntegration: true
     }
@@ -12,7 +12,7 @@ function createWindow () {
   win.loadFile('index.html')
   
   // Comment to take off inspector
-  win.webContents.openDevTools()
+  //win.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow)
