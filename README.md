@@ -1,8 +1,22 @@
-# CS1D-Project-2
+# NFL Football Planner
+
+![](https://i.imgur.com/1QpCYAk.png)
+
+* Note: Updated with the most recent picture.
+
+## Description: 
+The intent of this program is to store given NFL information into an ordered or unordered map without using the STL. The underlying data structure of the map is [insert data structure later]. This map will store the stadiums and the souvenirs. This application's purpose is to allow a user to plan their dream vacation.
 
 ## Developers:
 * **Daniel Navarro** - [Sakezone](https://github.com/Sakezone)
 * **Isaac Guido** - [Aizeke](https://github.com/Aizeke)
+
+## Software Requirements:
+* **Electron** - used for creating the GUI of the program.
+* **NodeJs** - used for node packages to run server, and to run Electron.
+
+## Installation:
+* to be added.
 
 ## License
 
