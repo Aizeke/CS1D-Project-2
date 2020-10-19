@@ -20,7 +20,11 @@ db.all = () => {
     })
   })
 }
-
+/**
+ * This function will search for one nfl distance by using its id
+ * as a parameter;
+ * @param {number} id ID for nfl distance
+ */
 db.search = (id) => {
   return new Promise((resolve, reject) => {
     pool.query('SELECT * FROM electron_db.nfldistances WHERE id = ?', [id], (err, results) => {
