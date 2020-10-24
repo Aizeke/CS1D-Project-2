@@ -11,9 +11,10 @@ The intent of this program is to store given NFL information into an ordered or 
 * **Daniel Navarro** - [Sakezone](https://github.com/Sakezone)
 * **Isaac Guido** - [Aizeke](https://github.com/Aizeke)
 
-## Software Requirements:
+## Software Requirements(Developtment):
 * **Electron** - used for creating the GUI of the program.
 * **NodeJs** - used for node packages to run server, and to run Electron.
+* **Electron Forge** - used to package the program.
 
 ## Installation:
 * to be added.
