@@ -1,11 +1,10 @@
 const express = require('express')
 const db = require('../controllers/nflInformation.js')
-
 const router = express.Router()
 
-router.get('/nflinformation/', async (req, res, next) => {
+router.get('/all', async (req, res, next) => {
   try {
-    const results = await db.allFromInformation()
+    const results = await db.allInformation()
     res.json(results)
   } catch (e) {
     console.log(e)
@@ -13,9 +12,9 @@ router.get('/nflinformation/', async (req, res, next) => {
   }
 })
 
-router.get('/information/:id', async (req, res, next) => {
+router.get('/id/:id', async (req, res, next) => {
   try {
-    const results = await db.search(req.params.id)
+    const results = await db.searchInformation(req.params.id)
     res.json(results)
   } catch (e) {
     console.log(e)

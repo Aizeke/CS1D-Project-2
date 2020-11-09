@@ -25,7 +25,7 @@ db.allDistances = () => {
 
 db.searchDistance = (id) => {
   return new Promise((resolve, reject) => {
-    connection.query('SELECT * FROM electron_db.nfldistances WHERE id = ?', id, (err, results) => {
+    connection.query('SELECT * FROM electron_db.nfldistances WHERE id = ?', [id], (err, results) => {
       if (err) return reject(err)
 
       return resolve(results[0])
