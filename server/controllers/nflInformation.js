@@ -9,12 +9,31 @@ const db = {}
 /**
  * Creates a query to Select everything from NFL Information database.
  */
-db.allFromInformation = () => {
+db.allInformation = () => {
   return new Promise((resolve, reject) => {
     connection.query('SELECT * FROM electron_db.nflinformation', (err, results) => {
       if (err) return reject(err)
-
+      console.log(results)
       return resolve(results)
+      /// results[0]."param"
+    })
+  })
+}
+
+// ===================================================
+// Search functions for NFL Information Db;
+// ===================================================
+
+/**
+ *
+ * @param {*} id
+ */
+db.searchInformation = (id) => {
+  return new Promise((resolve, reject) => {
+    connection.query('SELECT * FROM electron_db.nflinformation WHERE id = ?', [id], (err, results) => {
+      if (err) return reject(err)
+
+      return resolve(results[0])
     })
   })
 }
@@ -30,3 +49,5 @@ db.allFromInformation = () => {
 // ===================================================
 // Delete functions for NFL Information Db;
 // ===================================================
+
+module.exports = db
