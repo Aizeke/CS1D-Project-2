@@ -34,7 +34,6 @@ app.on('ready', function () {
 // Handle create add Window
 function createAddWindow () {
 // Create new window
-  // eslint-disable-next-line no-unused-vars
   addWin = new BrowserWindow({
     width: 200,
     height: 300,
@@ -51,6 +50,16 @@ function createAddWindow () {
   })
 }
 
+// Create Admin Login Page
+
+function createAdminLogin () {
+  win.loadURL(url.format({
+    pathname: path.join(__dirname, '/assets/pages/login.html'),
+    protocol: 'file',
+    slashes: true
+  }))
+}
+
 // Create menu template
 const menuTemplate = [
   {
@@ -63,9 +72,6 @@ const menuTemplate = [
         }
       },
       {
-        label: 'Clear Items'
-      },
-      {
         label: 'Quit',
         accelerator: process.platform === 'darwin' ? 'Command+Q' : 'Ctrl+Q',
         click () {
@@ -73,6 +79,12 @@ const menuTemplate = [
         }
       }
     ]
+  },
+  {
+    label: 'Login',
+    click () {
+      createAdminLogin()
+    }
   }
 ]
 
