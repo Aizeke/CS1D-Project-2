@@ -15,6 +15,7 @@ db.allInformation = () => {
       if (err) return reject(err)
       console.log(results)
       return resolve(results)
+      /// results[0]."param"
     })
   })
 }
@@ -23,6 +24,10 @@ db.allInformation = () => {
 // Search functions for NFL Information Db;
 // ===================================================
 
+/**
+ *
+ * @param {*} id
+ */
 db.searchInformation = (id) => {
   return new Promise((resolve, reject) => {
     connection.query('SELECT * FROM electron_db.nflinformation WHERE id = ?', [id], (err, results) => {
