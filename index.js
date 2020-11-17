@@ -1,3 +1,13 @@
+/*********************************************************
+* .-.    .--.  .--. .-..-. .--. 
+* : :   : ,. :: ,. :: `: :: .; :
+* : :   : :: :: :: :: .` ::    :
+* : :__ : :; :: :; :: :. :: :: :
+* :___.'`.__.'`.__.':_;:_;:_;:_;
+*
+* index.js - Ver. 0.1
+*********************************************************/
+
 const { app, BrowserWindow, Menu } = require('electron')
 const path = require('path')
 const url = require('url')
@@ -10,8 +20,8 @@ let addWin
 app.on('ready', function () {
   // Create new window
   win = new BrowserWindow({
-    width: 1000,
-    height: 800,
+    width: 1280,
+    height: 720,
     webPreferences: {
       nodeIntegration: true
     }

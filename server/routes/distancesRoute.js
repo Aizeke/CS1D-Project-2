@@ -1,11 +1,10 @@
 const express = require('express')
-const db = require('../db')
-
+const db = require('../controllers/nflDistances.js')
 const router = express.Router()
 
-router.get('/', async (req, res, next) => {
+router.get('/all', async (req, res, next) => {
   try {
-    const results = await db.all()
+    const results = await db.allDistances()
     res.json(results)
   } catch (e) {
     console.log(e)
@@ -13,9 +12,9 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-router.get('/:id', async (req, res, next) => {
+router.get('/id/:id', async (req, res, next) => {
   try {
-    const results = await db.search(req.params.id)
+    const results = await db.searchDistance(req.params.id)
     res.json(results)
   } catch (e) {
     console.log(e)
