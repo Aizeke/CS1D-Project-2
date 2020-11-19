@@ -1,19 +1,12 @@
 var mysql = require('mysql')
 
-const pool = mysql.createPool({
-  connectionLimit: 10,
-  password: 'root',
-  user: 'root',
-  database: 'electron_db',
-  host: 'localhost',
-  port: '3306'
-})
+const connection = require('../config/connection.js')
 
 const db = {}
 
 db.all = () => {
   return new Promise((resolve, reject) => {
-    pool.query('SELECT * FROM electron_db.nfldistances', (err, results) => {
+    connection.query('SELECT * FROM electron_db.nfldistances', (err, results) => {
       if (err) return reject(err)
 
       return resolve(results)
@@ -27,7 +20,7 @@ db.all = () => {
  */
 db.search = (id) => {
   return new Promise((resolve, reject) => {
-    pool.query('SELECT * FROM electron_db.nfldistances WHERE id = ?', [id], (err, results) => {
+    connection.query('SELECT * FROM electron_db.nfldistances WHERE id = ?', [id], (err, results) => {
       if (err) return reject(err)
 
       return resolve(results[0])

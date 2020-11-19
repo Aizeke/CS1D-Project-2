@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>shopping cart</title>
+    <title>Shopping Cart</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/checkout.css">
 </head>
 
 <body>
@@ -16,19 +17,18 @@
             <div class="row w-100">
                 <div class="col-lg-12 col-md-12 col-12">
                     <h3 class="display-5 mb-2 text-center">Souvenir Cart</h3>
-                    <p class="mb-5 text-center">
-                        <i class="text-info font-weight-bold">3</i> items in your cart</p>
                     <table id="shoppingCart" class="table table-condensed table-responsive">
                         <thead>
                             <tr>
                                 <th style="width:60%">Product</th>
                                 <th style="width:12%">Price</th>
                                 <th style="width:10%">Quantity</th>
-                                <th style="width:16%"></th>
+                                <th style="width:16%">Total</th>
                             </tr>
                         </thead>
+                        <!-- START OF TABLE BODY -->
                         <tbody>
-                            <tr>
+                            <tr class="product">
                                 <td data-th="Product">
                                     <div class="row">
                                         <div class="col-md-3 text-left">
@@ -36,27 +36,31 @@
                                                 class="img-fluid d-none d-md-block rounded mb-2 shadow ">
                                         </div>
                                         <div class="col-md-9 text-left mt-sm-2">
-                                            <h4>Product Name</h4>
+                                            <h4>Signed Helmets</h4>
                                             <p class="font-weight-light">Brand &amp; Name</p>
                                         </div>
                                     </div>
                                 </td>
-                                <td data-th="Price">$49.00</td>
+                                <td data-th="Price" class="product-price">77.99</td>
                                 <td data-th="Quantity">
-                                    <input type="number" class="form-control form-control-lg text-center" value="1">
+                                    <div class="product-quantity">
+                                        <input type="number" class="form-control form-control-lg text-center" value="0"
+                                            min="0">
+                                    </div>
                                 </td>
+                                <td data-th="Total" class="product-line-price">0.00</td>
                                 <td class="actions" data-th="">
                                     <div class="text-right">
-                                        <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                            <i class="fas fa-sync"></i>
-                                        </button>
-                                        <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                            <i class="fas fa-trash"></i>
+                                        <button
+                                            class="btn btn-white border-secondary bg-white btn-md mb-2 product-removal">
+                                            <img src="../icons/trash-fill.svg" alt="trash-fill-svg"
+                                                class="remove-product">
                                         </button>
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <!-- 2nd ELEMENT -->
+                            <tr class="product">
                                 <td data-th="Product">
                                     <div class="row">
                                         <div class="col-md-3 text-left">
@@ -64,27 +68,31 @@
                                                 class="img-fluid d-none d-md-block rounded mb-2 shadow ">
                                         </div>
                                         <div class="col-md-9 text-left mt-sm-2">
-                                            <h4>Product Name</h4>
+                                            <h4>Autographed Football</h4>
                                             <p class="font-weight-light">Brand &amp; Name</p>
                                         </div>
                                     </div>
                                 </td>
-                                <td data-th="Price">$49.00</td>
+                                <td data-th="Price" class="product-price">99.89</td>
                                 <td data-th="Quantity">
-                                    <input type="number" class="form-control form-control-lg text-center" value="1">
+                                    <div class="product-quantity">
+                                        <input type="number" class="form-control form-control-lg text-center" value="0"
+                                            min="0">
+                                    </div>
                                 </td>
+                                <td data-th="Total" class="product-line-price">0.00</td>
                                 <td class="actions" data-th="">
                                     <div class="text-right">
-                                        <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                            <i class="fas fa-sync"></i>
-                                        </button>
-                                        <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                            <i class="fas fa-trash"></i>
+                                        <button
+                                            class="btn btn-white border-secondary bg-white btn-md mb-2 product-removal">
+                                            <img src="../icons/trash-fill.svg" alt="trash-fill-svg"
+                                                class="remove-product">
                                         </button>
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <!-- 3rd -->
+                            <tr class="product">
                                 <td data-th="Product">
                                     <div class="row">
                                         <div class="col-md-3 text-left">
@@ -92,51 +100,132 @@
                                                 class="img-fluid d-none d-md-block rounded mb-2 shadow ">
                                         </div>
                                         <div class="col-md-9 text-left mt-sm-2">
-                                            <h4>Product Name</h4>
+                                            <h4>Team Pennant</h4>
                                             <p class="font-weight-light">Brand &amp; Name</p>
                                         </div>
                                     </div>
                                 </td>
-                                <td data-th="Price">$49.00</td>
+                                <td data-th="Price" class="product-price">17.99</td>
                                 <td data-th="Quantity">
-                                    <input type="number" class="form-control form-control-lg text-center" value="1">
+                                    <div class="product-quantity">
+                                        <input type="number" class="form-control form-control-lg text-center" value="0"
+                                            min="0">
+                                    </div>
                                 </td>
+                                <td data-th="Total" class="product-line-price">0.00</td>
                                 <td class="actions" data-th="">
                                     <div class="text-right">
-                                        <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                            <i class="fas fa-sync"></i>
+                                        <button
+                                            class="btn btn-white border-secondary bg-white btn-md mb-2 product-removal">
+                                            <img src="../icons/trash-fill.svg" alt="trash-fill-svg"
+                                                class="remove-product">
                                         </button>
-                                        <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                            <i class="fas fa-trash"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- 4th -->
+                            <tr class="product">
+                                <td data-th="Product">
+                                    <div class="row">
+                                        <div class="col-md-3 text-left">
+                                            <img src="https://via.placeholder.com/250x250/5fa9f8/ffffff" alt=""
+                                                class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                        </div>
+                                        <div class="col-md-9 text-left mt-sm-2">
+                                            <h4>Team Picture</h4>
+                                            <p class="font-weight-light">Brand &amp; Name</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-th="Price" class="product-price">29.99</td>
+                                <td data-th="Quantity">
+                                    <div class="product-quantity">
+                                        <input type="number" class="form-control form-control-lg text-center" value="0"
+                                            min="0">
+                                    </div>
+                                </td>
+                                <td data-th="Total" class="product-line-price">0.00</td>
+                                <td class="actions" data-th="">
+                                    <div class="text-right">
+                                        <button
+                                            class="btn btn-white border-secondary bg-white btn-md mb-2 product-removal">
+                                            <img src="../icons/trash-fill.svg" alt="trash-fill-svg"
+                                                class="remove-product">
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- 5th -->
+                            <tr class="product">
+                                <td data-th="Product">
+                                    <div class="row">
+                                        <div class="col-md-3 text-left">
+                                            <img src="https://via.placeholder.com/250x250/5fa9f8/ffffff" alt=""
+                                                class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                        </div>
+                                        <div class="col-md-9 text-left mt-sm-2">
+                                            <h4>Team Jersey</h4>
+                                            <p class="font-weight-light">Brand &amp; Name</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-th="Price" class="product-price">199.99</td>
+                                <td data-th="Quantity">
+                                    <div class="product-quantity">
+                                        <input type="number" class="form-control form-control-lg text-center" value="0"
+                                            min="0">
+                                    </div>
+                                </td>
+                                <td data-th="Total" class="product-line-price">0.00</td>
+                                <td class="actions" data-th="">
+                                    <div class="text-right">
+                                        <button
+                                            class="btn btn-white border-secondary bg-white btn-md mb-2 product-removal">
+                                            <img src="../icons/trash-fill.svg" alt="trash-fill-svg"
+                                                class="remove-product">
                                         </button>
                                     </div>
                                 </td>
                             </tr>
                         </tbody>
+                        <!-- END OF TABLE BODY -->
                     </table>
                     <div class="float-right text-right">
-                        <h4>Subtotal:</h4>
-                        <h1 id="cartSubtotal">$0.00</h1>
+                        <div class="totals-item">
+                            <label>Subtotal</label>
+                            <div class="totals-value" id="cart-subtotal">0.00</div>
+                        </div>
+                        <div class="totals-item">
+                            <label>Tax (5%)</label>
+                            <div class="totals-value" id="cart-tax">0.00</div>
+                        </div>
+                        <div class="totals-item totals-item-total">
+                            <label>Grand Total</label>
+                            <div class="totals-value" id="cart-total">0.00</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row mt-4 d-flex align-items-center">
-                <div class="col-sm-6 order-md-2 text-right">
-                    <a href="catalog.html" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">Checkout</a>
-                </div>
-                <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
-                    <a href="catalog.html">
-                        <i class="fas fa-arrow-left mr-2"></i> Continue Shopping</a>
-                </div>
+        </div>
+        <div class="row mt-4 d-flex align-items-center">
+            <div class="col-sm-6 order-md-2 text-right">
+                <a href="catalog.html" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">Checkout</a>
             </div>
+            <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
+                <a href="catalog.html">
+                    <img src="../icons/arrow-left.svg" alt="arrow-left-avg" class="mr-2"> Back</a>
+            </div>
+        </div>
         </div>
     </section>
 
 
     <!-- jQuery and JS bundle w/ Popper.js -->
-    <script src="../js/jquery-3.3.1.slim.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="../js/checkout.js"></script>
 </body>
 
 </html>

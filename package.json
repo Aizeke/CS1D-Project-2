@@ -2,7 +2,7 @@
   "name": "cs1d-project-2",
   "version": "1.0.0",
   "description": "CS1D Software",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -27,7 +27,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./",
     "start": "electron .",
-    "dev": "npx nodemon server/server.js -w server"
+    "dev": "npx nodemon server.js -w server"
   },
   "repository": {
     "type": "git",
