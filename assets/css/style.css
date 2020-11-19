@@ -31,7 +31,7 @@ ROOT - Contains all the variables needed for proper exectuion.
 */
 :root
 {
-    --homePage: url("https://i.imgur.com/SULt74B.png") ;
+    --homePage: url("../images/mainpage_image.png") ;
     --bounce: cubic-bezier(.42,0,0.02,1.39);
 }
 /*
