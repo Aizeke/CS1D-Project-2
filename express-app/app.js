@@ -31,8 +31,8 @@ app.use('/information', informationRoute)
 // use distancesRoute to handle endpoints with
 // the start using /information
 
-app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, '/views/adminpage.html'))
+app.get('/', (req, res) => {
+  // handle root
 })
 
 app.listen(port, () => {

@@ -52,6 +52,16 @@ function createAddWindow () {
   })
 }
 
+// Create Admin Login Page
+
+function createAdminLogin () {
+  win.loadURL(url.format({
+    pathname: path.join(__dirname, '/assets/pages/login.html'),
+    protocol: 'file',
+    slashes: true
+  }))
+}
+
 // Create menu template
 
 const menuTemplate = [
@@ -72,6 +82,12 @@ const menuTemplate = [
         }
       }
     ]
+  },
+  {
+    label: 'Login',
+    click () {
+      createAdminLogin()
+    }
   }
 ]
 
