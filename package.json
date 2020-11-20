@@ -9,6 +9,12 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.5",
     "path": "^0.12.7",
+<<<<<<< HEAD
+=======
+    "request": "^2.88.2",
+    "requirejs": "^2.3.6",
+    "strip": "^3.0.0",
+>>>>>>> parent of ab21ae9... Revert "quick fix for no mainwindow"
     "url": "^0.11.0"
   },
   "devDependencies": {
