@@ -12,10 +12,8 @@ app.on('ready', function () {
     height: 720,
     webPreferences: {
       nodeIntegration: true
-    },
-    resizable: false
+    }
   })
-
   win.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
     protocol: 'file',
@@ -63,7 +61,6 @@ function createAdminLogin () {
 }
 
 // Create menu template
-
 const menuTemplate = [
   {
     label: 'File',

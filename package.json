@@ -2,18 +2,13 @@
   "name": "cs1d-project-2",
   "version": "1.0.0",
   "description": "CS1D Software",
-  "main": "main.js",
+  "main": "index.js",
   "dependencies": {
     "express": "^4.17.1",
     "jquery": "^3.5.1",
-    "keymaster": "^1.6.2",
-    "lodash": "^4.17.20",
     "mysql": "^2.18.1",
-    "node": "^15.2.0",
     "nodemon": "^2.0.5",
     "path": "^0.12.7",
-    "request": "^2.88.2",
-    "strip": "^3.0.0",
     "url": "^0.11.0"
   },
   "devDependencies": {
