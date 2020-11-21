@@ -1,22 +1,24 @@
+const express = require('express')
+const path = require('path')
+const favicon = require('serve-favicon')
+const logger = require('morgan')
+const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
 const distancesRoute = require('./routes/distancesRoute.js')
 const informationRoute = require('./routes/informationRoute.js')
-const express = require("express"),
-  path = require("path"),
-  //favicon = require('serve-favicon'),
-  logger = require("morgan"),
-  cookieParser = require("cookie-parser"),
-  bodyParser = require("body-parser"),
-  app = express();
 
+const app = express()
 
-//uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+// view engine setup
+app.set('pages', path.join(__dirname, 'pages'))
+app.set('view engine', 'html')
 
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+app.use(logger('dev'))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(cookieParser())
+app.use(express.static(path.join(__dirname, 'public')))
 
 /**
  * Require all the routes
@@ -40,24 +42,20 @@ app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, '/views/adminpage.html'))
 })
 
-app.listen(port, () => {
-  console.log(`Server is running on port: ${process.env.PORT || 3000}`)
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404))
 })
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.message = err.message
+  res.locals.error = req.app.get('env') === 'development' ? err : {}
 
   // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+  res.status(err.status || 500)
+  res.render('error')
+})
 
-module.exports = app;
+module.exports = app
