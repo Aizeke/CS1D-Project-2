@@ -6,12 +6,13 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const distancesRoute = require('./routes/distancesRoute.js')
 const informationRoute = require('./routes/informationRoute.js')
+const routes = require('./routes/routes.js')
 
 const app = express()
 
 // view engine setup
-app.set('pages', path.join(__dirname, 'pages'))
-app.set('view engine', 'html')
+app.set('views', path.join(__dirname, '/views'))
+app.set('view engine', 'ejs')
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(logger('dev'))
@@ -19,6 +20,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
+
+app.use('/', routes)
 
 /**
  * Require all the routes
@@ -30,17 +33,6 @@ app.use('/distance', distancesRoute)
 app.use('/information', informationRoute)
 // use distancesRoute to handle endpoints with
 // the start using /information
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'))
-})
-
-app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, './assets/pages/login.html'))
-})
-app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, '/views/adminpage.html'))
-})
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

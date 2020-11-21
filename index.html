@@ -60,9 +60,9 @@ NFL Football Planner HTML - Ver: 0.1
     </div>
     <div id="serverLog"></div>
     <iframe id="expressApp" class="expressApp" frameborder="0"></iframe>
-
+    <!-- Server Script -->
     <script>
-        window.$ = window.jQuery = require("./node_modules/jquery/dist/jquery.min.js");
+        window.$ = window.jQuery = require("./node_modules/jquery/dist/jquery.js");
 
         const { ipcRenderer } = require("electron"),
             expressAppUrl = "http://127.0.0.1:3000",
@@ -139,7 +139,7 @@ NFL Football Planner HTML - Ver: 0.1
                     clearInterval(checkServerRunning);
                 }
             });
-        }, 1000);
+        }, 2000);
     </script>
 </body>
 
