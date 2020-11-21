@@ -2,7 +2,7 @@
   "name": "cs1d-project-2",
   "version": "1.0.0",
   "description": "CS1D Software",
-  "main": "server.js",
+  "main": "index.js",
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
