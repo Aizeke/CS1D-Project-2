@@ -18,11 +18,51 @@ NFL Football Planner HTML - Ver: 0.1
     <!-- CSS - Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/index.css">
+        <style>
+            body {
+              overflow: hidden;
+              margin: 0;
+              padding: 0;
+            }
+      
+            #loading {
+              position: absolute;
+              width: 100%;
+              top: 45%;
+              text-align: center;
+            }
+      
+            #serverLog {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              display: none;
+              overflow: auto;
+            }
+      
+            .expressApp {
+              display: flex !important;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+            }
+      
+            .expressAppHide {
+              flex: 0 1;
+              width: 0px;
+              height: 0px;
+            }
+          </style>
+        <link rel="stylesheet" href="./assets/css/index.css">
 </head>
 
 <body>
-
+    <div id="loading">
+        Loading...
+      </div>
+      <div id="serverLog"></div>
+      <iframe id="expressApp" class="expressApp" frameborder="0"></iframe>
+      
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">NFL Football</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -45,9 +85,90 @@ NFL Football Planner HTML - Ver: 0.1
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
+    <script src="./assets/js/mainwindow.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+        <script>
+            window.$ = window.jQuery = require("./node_modules/jquery/dist/jquery.min.js");
+      
+            const { ipcRenderer } = require("electron"),
+              expressAppUrl = "http://127.0.0.1:3000",
+              spawn = require("child_process").spawn,
+              // For electron-packager change cwd in spawn to app.getAppPath() and
+              // uncomment the app require below
+              //app = require('electron').remote.app,
+              node = spawn(
+                ".\\node_modules\\node\\bin\\node.exe",
+                ["./server/bin/www"],
+                {
+                  cwd: process.cwd()
+                }
+              ),
+              request = require("request"),
+              _ = require("lodash"),
+              key = require("keymaster"),
+              $serverLog = $("#serverLog"),
+              $expressApp = $("#expressApp"),
+              $loading = $("#loading");
+      
+            ipcRenderer.on("stop-server", (event, data) => {
+              // This is okay for now but there is a better solution. We can use IPC to
+              // tell the server (the Express app itself) to gracefully shutdown. This
+              // would be much better especially if we had database connections or other
+              // resources we were using that needed to be cleaned up.
+              node.kill("SIGINT");
+            });
+      
+            key("f1", () => {
+              if ($serverLog.css("display") === "none") {
+                $serverLog.css("display", "block");
+                $expressApp.addClass("expressAppHide");
+              } else {
+                $expressApp.removeClass("expressAppHide");
+                $serverLog.css("display", "none");
+              }
+            });
+      
+            function strip(s) {
+              // regex from: http://stackoverflow.com/a/29497680/170217
+              return s.replace(
+                /[\u001b\u009b][[()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g,
+                ""
+              );
+            }
+      
+            function redirectOutput(x) {
+              let lineBuffer = "";
+      
+              x.on("data", function(data) {
+                lineBuffer += data.toString();
+                let lines = lineBuffer.split("\n");
+      
+                _.forEach(lines, l => {
+                  if (l !== "") {
+                    $serverLog.append(strip(l) + "<br/>");
+                  }
+                });
+      
+                lineBuffer = lines[lines.length - 1];
+              });
+            }
+      
+            redirectOutput(node.stdout);
+            redirectOutput(node.stderr);
+      
+            let checkServerRunning = setInterval(() => {
+              request(expressAppUrl, (error, response, body) => {
+                if (!error && response.statusCode == 200) {
+                  $expressApp.attr("src", expressAppUrl);
+                  $loading.css("display", "none");
+                  $expressApp.css("display", "block");
+                  clearInterval(checkServerRunning);
+                }
+              });
+            }, 1000);
+          </script>
 </body>
 
 </html>

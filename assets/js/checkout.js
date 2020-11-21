@@ -1,3 +1,5 @@
+window.$ = window.jQuery = require("jquery");
+
 /* eslint-disable no-undef */
 $(document).ready(function () {
   /* Set rates + misc */

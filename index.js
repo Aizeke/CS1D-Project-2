@@ -59,12 +59,6 @@ const menuTemplate = [
     label: 'File',
     submenu: [
       {
-        label: 'Add Item',
-        click () {
-          createAddWindow()
-        }
-      },
-      {
         label: 'Quit',
         accelerator: process.platform === 'darwin' ? 'Command+Q' : 'Ctrl+Q',
         click () {
