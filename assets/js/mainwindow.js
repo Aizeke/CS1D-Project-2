@@ -1,4 +1,4 @@
-const $ = require('jquery')
+window.$ = window.jQuery = require("jquery");
 
 const { ipcRenderer } = require('electron')
 const expressAppUrl = 'http://localhost:3000'
