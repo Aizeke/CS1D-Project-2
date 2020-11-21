@@ -10,6 +10,8 @@
     "nodemon": "^2.0.5",
     "path": "^0.12.7",
     "request": "^2.88.2",
+    "require": "^2.4.20",
+    "require.js": "^1.0.0",
     "requirejs": "^2.3.6",
     "strip": "^3.0.0",
     "url": "^0.11.0"
