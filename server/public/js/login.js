@@ -10,7 +10,6 @@ loginbtn.addEventListener('click', (e) => {
   if (user === 'a' && password === 'a') {
     // window.location.replace('../pages/adminpage.html')
   } else {
-    alert(`${user} is the wrong username.`)
-    alert(`${password} is the wrong password.`)
+    alert(`${user} is the wrong username.\n ${password} is the wrong password.`)
   }
 })
