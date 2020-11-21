@@ -3,7 +3,6 @@ const path = require('path')
 const url = require('url')
 
 let win
-let addWin
 
 app.on('ready', function () {
   // Create new window
@@ -32,25 +31,6 @@ app.on('ready', function () {
   // Insert our own menu
   Menu.setApplicationMenu(mainMenu)
 })
-
-// Handle create add Window
-function createAddWindow () {
-// Create new window
-  addWin = new BrowserWindow({
-    width: 200,
-    height: 300,
-    title: 'Add Shopping List Item'
-  })
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'addWindow.html'),
-    protocol: 'file',
-    slashes: true
-  }))
-  // Garbage collection handle
-  addWin.on('close', function () {
-    addWin = null
-  })
-}
 
 // Create menu template
 

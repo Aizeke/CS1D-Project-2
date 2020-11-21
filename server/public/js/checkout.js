@@ -1,4 +1,4 @@
-window.$ = window.jQuery = require("jquery");
+window.$ = window.jQuery = require('jquery')
 
 /* eslint-disable no-undef */
 $(document).ready(function () {
