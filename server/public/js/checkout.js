@@ -1,6 +1,5 @@
 window.$ = window.jQuery = require('jquery')
 
-/* eslint-disable no-undef */
 $(document).ready(function () {
   /* Set rates + misc */
   var taxRate = 0.05
