@@ -1,7 +1,3 @@
-/* eslint-disable no-undef */
-
-window.$ = window.jQuery = require('jquery')
-
 // document.addEventListener('DOMContentLoaded', function(){
 //   const arr = [
 //     { id: '0', distance: '870', beginningstadium: 'State Farm Stadium', teamname: 'Arizona Cardinals', endingstadium: 'AT&T Stadium' },
@@ -33,6 +29,7 @@ $(document).ready(function () {
     { id: '2', distance: '1115', beginningstadium: 'State Farm Stadium', teamname: 'Arizona Cardinals', endingstadium: 'NRG Stadium' },
     { id: '3', distance: '580', beginningstadium: 'State Farm Stadium', teamname: 'Arizona Cardinals', endingstadium: 'Broncos Stadium at Mile High' }
   ]
+
   buildTable(arr)
 
   function buildTable (data) {
