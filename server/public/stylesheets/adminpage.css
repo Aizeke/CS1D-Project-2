@@ -16,7 +16,7 @@ body {
     text-align: left;
     background-repeat: no-repeat!important;
     background-size: cover!important;
-    background: url(https://i.imgur.com/f5L5Jcv.jpg);
+    background: url("../images/adminPanelBackground.jpg");
 }
 
 .table {
@@ -47,7 +47,7 @@ body {
 
 .hidden {
     display: none;
-
+}
 .card {
     position: relative;
     display: -ms-flexbox;
