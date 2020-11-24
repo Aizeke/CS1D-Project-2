@@ -26,6 +26,16 @@ router.get('/id/:id', async (req, res, next) => {
 
 // router.delete for delete
 
+router.delete('/delete/:id', async (req, res, next) => {
+  try {
+    const results = await db.delete(req.params.id)
+    res.json(results)
+  } catch (e) {
+    console.log(e)
+    res.sendStatus(500)
+  }
+})
+
 // router.post for create
 
 module.exports = router

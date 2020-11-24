@@ -37,12 +37,26 @@ db.searchDistance = (id) => {
 // Insert functions for NFL Distances Db;
 // ===================================================
 
+db.insert = (distance, beginningstadium, teamname, endingstadium) => {
+  connection.query('INERT INTO electron_db.nfldistances (distance, beginningstadium, teamname, endingstadium) VALUES (?, ?, ?, ?)',
+    [distance, beginningstadium, teamname, endingstadium])
+}
+
 // ===================================================
 // Update functions for NFL Distances Db;
 // ===================================================
 
+db.update = (id, distance, beginningstadium, teamname, endingstadium) => {
+  connection.query('UPDATE electron_db.nfldistances SET distance = ? OR beginningstadium = ? OR teamname = ? OR endingstadium = ? WHERE id = ?',
+    [distance, beginningstadium, teamname, endingstadium, id])
+}
+
 // ===================================================
 // Delete functions for NFL Distances Db;
 // ===================================================
+
+db.delete = (id) => {
+  connection.query('DELETE FROM electron_db.nfldistances WHERE id = ?', [id])
+}
 
 module.exports = db

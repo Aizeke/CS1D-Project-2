@@ -1,5 +1,3 @@
-window.$ = window.jQuery = require('jquery')
-
 $(document).ready(function () {
   /* Set rates + misc */
   var taxRate = 0.05
