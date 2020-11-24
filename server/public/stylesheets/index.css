@@ -70,7 +70,7 @@ Navbar
     color: #FFF!important;
     font-family: 'Poppins', sans-serif!important;
     font-weight: 900!important;
-    transition: 300ms font-size var(--bounce);
+    transition: 1s font-size var(--bounce);
     letter-spacing: 1px;
     text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
@@ -148,3 +148,11 @@ a:hover
     cursor: pointer;
   }
 /* END OF MAPBOX */
+
+.container.row.col-sm,
+.col-sm,
+#smallCol
+{
+    color: #FFF!important;
+    font-size: 200px;
+}

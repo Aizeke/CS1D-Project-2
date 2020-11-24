@@ -1,5 +1,23 @@
 /*
 *********************************************************************************************************
+.-.    .--.  .--. .-..-. .--. 
+: :   : ,. :: ,. :: `: :: .; :
+: :   : :: :: :: :: .` ::    :
+: :__ : :; :: :; :: :. :: :: :
+:___.'`.__.'`.__.':_;:_;:_;:_;
+                              
+NFL Football Planner CSS - Ver: 0.1
+
+Description:
+    Below is the CSS needed to run the styling for the NFL Planner.
+
+@Import Credit:
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap'); 
+    - used for importing font from google api.
+*********************************************************************************************************
+*/
+/*
+*********************************************************************************************************
 @IMPORTS - used to import the code required for the css to work.
 *********************************************************************************************************
 */
@@ -13,8 +31,9 @@ ROOT - Contains all the variables needed.
 */
 :root
 {
-    --homePage: url("https://i.imgur.com/SULt74B.png") ;
+    --homePage: url("../images/mainpage_image.jpg") ;
     --bounce: cubic-bezier(.42,0,0.02,1.39);
+    --windowRadius: 20px;
 }
 /*
 *********************************************************************************************************
@@ -24,7 +43,8 @@ BODY
 body
 {
     
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%), var(--homePage)!important;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%), 
+                                      var(--homePage)!important;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -38,8 +58,9 @@ Navbar
 */
 .bg-light
 {
-    background: rgba(0,0,0,0.5)!important;
-    backdrop-filter: blur(20px);
+    /* background: rgba(0,0,0,0.5)!important;
+    backdrop-filter: blur(20px); */
+    background:transparent!important;
 }
 
 .navbar-collapse
@@ -54,6 +75,10 @@ Navbar
     transition: 300ms font-size var(--bounce);
     letter-spacing: 1px;
     text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+.navbar
+{
+    box-shadow: 0 5px 10px rgba(0,0,0,0);
 }
 /*Buttons in Navbar List*/
 a:hover
@@ -74,4 +99,96 @@ a:hover
 .navbar-light .navbar-brand:hover
 {
     font-size: 40px!important;
+}
+
+#descriptionColumn
+{
+    color: #fff;
+    font-weight: 400;
+    font-family: 'Poppins';
+    background: rgba(0,0,0,0.5);
+    margin-left: -100px;
+    margin-top: 10px;
+    border-radius: var(--windowRadius);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+    backdrop-filter: blur(20px) saturate(180%);
+    padding: 10px;
+}
+
+#mapColumn
+{
+    color: #fff;
+    font-weight: 400;
+    font-family: 'Poppins';
+    margin-top: 10px;
+    border-radius: var(--windowRadius);
+    padding: 10px;
+    margin-left: 20px;
+    text-align: center;
+    text-shadow: 0 3px 5px rgba(0,0,0,0.45);
+}
+#descriptionParagraph
+{
+    font-weight: 600!important;
+    font-size: 14px;
+    font-family: sans-serif;
+}
+
+.modal-content {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: rgba(255,255,255,0.65);
+    backdrop-filter: blur(25px) saturate(180%);
+    background-clip: padding-box;
+    border: none;
+    border-radius: 25px;
+    outline: 0;
+    box-shadow: 0 3px 30px rgba(0,0,0,1);
+}
+
+.table td, .table th
+{
+    border: none;
+}
+.table thead th
+{
+    border: none;
+}
+
+.table
+{
+    color:#FFF!important;
+}
+
+.text-right {
+    text-align: right!important;
+    color: #FFF;
+    }
+
+.modal-footer {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: .75rem;
+    border-bottom-right-radius: calc(.3rem - 1px);
+    border-bottom-left-radius: calc(.3rem - 1px);
+    border: none!important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+    border-color: transparent;
+    backdrop-filter: blur(20px);
+    margin: 15px;
 }
