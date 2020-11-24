@@ -7,8 +7,8 @@ let win
 app.on('ready', function () {
   // Create new window
   win = new BrowserWindow({
-    width: 1280,
-    height: 720,
+    width: 1366,
+    height: 768,
     webPreferences: {
       nodeIntegration: true
     },
@@ -66,9 +66,6 @@ if (process.env.NODE_ENV !== 'production') {
         click (item, focusedWindow) {
           focusedWindow.toggleDevTools()
         }
-      },
-      {
-        role: 'reload'
       }
     ]
   })

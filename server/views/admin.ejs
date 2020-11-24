@@ -15,18 +15,43 @@
 
     <!-- MAIN CONTENT -->
 
-    <table class="table" data-toggle="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Distance</th>
-                <th scope="col">Beginning Stadium</th>
-                <th scope="col">Team Name</th>
-                <th scope="col">Ending Stadium</th>
-            </tr>
-        </thead>
-        <tbody id="nflDistance"></tbody>
-    </table>
+    <!-- Search Bar -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="card card-body">
+                    <input id="searchTable" class="form-control" type="text" placeholder="Search . . .">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Filter for the table -->
+        <div class="row">
+            <div class="col-md-12 col-sm-12" id="tableFilter">
+                <button id="loadDistance" type="button" class="btn btn-success">Load NFL Distance</button>
+                <button id="loadInformation" type="button" class="btn btn-success">Load NFL Information</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- database table -->
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <table class="table" data-toggle="table">
+                    <thead class="thead-dark">
+                        <tr id="distanceTH"></tr>
+                        <tr id="informationTH"></tr>
+                    </thead>
+                    <tbody id="nflDistance"></tbody>
+                    <tbody id="nflInformation"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Bootstrap Javascript -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
