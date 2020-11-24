@@ -44,6 +44,10 @@ body {
     text-decoration: none;
 }
 
+
+.hidden {
+    display: none;
+
 .card {
     position: relative;
     display: -ms-flexbox;

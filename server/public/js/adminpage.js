@@ -15,7 +15,8 @@ $(document).ready(function () {
     <th class="sortTH" scope="col" data-column="distance" data-order="desc"">Distance &#9650</th>
     <th class="sortTH" scope="col" data-column="beginningstadium" data-order="desc"">Beginning Stadium &#9650</th>
     <th class="sortTH" scope="col" data-column="teamname" data-order="desc"">Team Name &#9650</th>
-    <th class="sortTH" scope="col" data-column="endingstadium" data-order="desc"">Ending Stadium &#9650</th>`
+    <th class="sortTH" scope="col" data-column="endingstadium" data-order="desc"">Ending Stadium &#9650</th>
+    <th></th>`
 
     distanceTH.append(th)
 
@@ -25,9 +26,6 @@ $(document).ready(function () {
       success: function (res) {
         nflDistanceArr = res
         buildDistanceTable(nflDistanceArr)
-
-        console.log(nflInformationArr)
-        console.log(nflDistanceArr)
       }
     })
   })
@@ -50,7 +48,8 @@ $(document).ready(function () {
     <th class="sortTH" scope="col" data-column="teamname" data-order="desc">Team Name &#9650</th>
     <th class="sortTH" scope="col" data-column="stadiumrooftype" data-order="desc">Stadium Roof Type &#9650</th>
     <th class="sortTH" scope="col" data-column="location" data-order="desc">Location &#9650</th>
-    <th class="sortTH" scope="col" data-column="dateopened" data-order="desc">Date Opened &#9650</th>`
+    <th class="sortTH" scope="col" data-column="dateopened" data-order="desc">Date Opened &#9650</th>
+    <th></th>`
 
     informationTH.append(th)
 
@@ -111,6 +110,30 @@ $(document).ready(function () {
     $(this).html(text)
     buildInformationTable(nflInformationArr)
   })
+
+  $('#nflDistance').on('click', '.deleteRow', function () {
+    if (confirm('Detele the Entry?')) {
+      $.ajax({
+        method: 'DELETE',
+        url: '/distance/delete/' + $(this).data('id'),
+        success: function (res) {
+          console.log(res)
+        }
+      })
+    }
+  })
+
+  $('#nflInformation').on('click', '.deleteRow', function () {
+    if (confirm('Detele the Entry?')) {
+      $.ajax({
+        method: 'DELETE',
+        url: '/information/delete/' + $(this).data('id'),
+        success: function (res) {
+          console.log(res)
+        }
+      })
+    }
+  })
 })
 
 function searchTable (value, data) {
@@ -141,6 +164,7 @@ function buildDistanceTable (data) {
                   <td>${data[i].beginningstadium}</td>
                   <td>${data[i].teamname}</td>
                   <td>${data[i].endingstadium}</td>
+                  <th class="deleteRow" data-id=${data[i].id}>&#128465</td>
               </tr>`
     table.append(row)
   }
@@ -164,6 +188,7 @@ function buildInformationTable (data) {
                   <td>${data[i].stadiumrooftype}</td>
                   <td>${data[i].location}</td>
                   <td>${data[i].dateopened}</td>
+                  <th class="deleteRow" data-id=${data[i].id}>&#128465</td>
               </tr>`
     table.append(row)
   }
