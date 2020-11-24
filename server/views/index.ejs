@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<%- include('include/head'); %>
+<%- include('include/index'); %>
 <html lang="en">
 
 <body>
@@ -21,8 +21,244 @@
 
     <!-- MAIN CONTENT -->
 
+    <div class="container">
+        <div class="row">
+          <div class="col-sm" id="descriptionColumn">
+            <h3>Welcome To the NFL Planner!</h3>  
+            <br>
+            <h6>Description:</h6>
+            <p id="descriptionParagraph">
+                This program will provide NFL information with options of buying merchandise from
+                different stadiums and from different teams. As a football fan, you are able to sort
+                and view information from your favorite team, or purchase souveniers from your favorite team!
+            </p>
+          </div>
+          <div class="col-xl" id="mapColumn">
+            Map Display:
+          </div>
+        </div>
+      </div>
 
+      <!-- Modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-souvenir-modal-lg">Purchase Souvenirs</button>
 
+    <div class="modal fade bd-souvenir-modal-lg" tabindex="-1" role="dialog" aria-labelledby="Souvenir Shop"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <section class="pt-5 pb-5">
+                    <div class="container">
+                        <div class="row w-100">
+                            <div class="col-lg-12 col-md-12 col-12">
+                                <h3 class="display-5 mb-2 text-center" style="color: #FFF"><b>Souvenir Cart</b></h3>
+                                <table id="shoppingCart" class="table table-condensed table-responsive">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:60%">Product</th>
+                                            <th style="width:12%">Price</th>
+                                            <th style="width:10%">Quantity</th>
+                                            <th style="width:16%">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- START OF TABLE BODY -->
+                                    <tbody>
+                                        <tr class="product">
+                                            <td data-th="Product">
+                                                <div class="row">
+                                                    <div class="col-md-3 text-left">
+                                                        <img src="https://via.placeholder.com/250x250/5fa9f8/ffffff"
+                                                            alt=""
+                                                            class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                                    </div>
+                                                    <div class="col-md-9 text-left mt-sm-2">
+                                                        <h4>Signed Helmets</h4>
+                                                        <p class="font-weight-light">Brand &amp; Name</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td data-th="Price" class="product-price">77.99</td>
+                                            <td data-th="Quantity">
+                                                <div class="product-quantity">
+                                                    <input type="number"
+                                                        class="form-control form-control-lg text-center" value="0"
+                                                        min="0">
+                                                </div>
+                                            </td>
+                                            <td data-th="Total" class="product-line-price">0.00</td>
+                                            <td class="actions" data-th="">
+                                                <div class="text-right">
+                                                    <button
+                                                        class="btn btn-white border-secondary bg-white btn-md mb-2 product-removal">
+                                                        <img src="../icons/trash-fill.svg" alt="trash-fill-svg"
+                                                            class="remove-product">
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- 2nd ELEMENT -->
+                                        <tr class="product">
+                                            <td data-th="Product">
+                                                <div class="row">
+                                                    <div class="col-md-3 text-left">
+                                                        <img src="https://via.placeholder.com/250x250/5fa9f8/ffffff"
+                                                            alt=""
+                                                            class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                                    </div>
+                                                    <div class="col-md-9 text-left mt-sm-2">
+                                                        <h4>Autographed Football</h4>
+                                                        <p class="font-weight-light">Brand &amp; Name</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td data-th="Price" class="product-price">99.89</td>
+                                            <td data-th="Quantity">
+                                                <div class="product-quantity">
+                                                    <input type="number"
+                                                        class="form-control form-control-lg text-center" value="0"
+                                                        min="0">
+                                                </div>
+                                            </td>
+                                            <td data-th="Total" class="product-line-price">0.00</td>
+                                            <td class="actions" data-th="">
+                                                <div class="text-right">
+                                                    <button
+                                                        class="btn btn-white border-secondary bg-white btn-md mb-2 product-removal">
+                                                        <img src="../icons/trash-fill.svg" alt="trash-fill-svg"
+                                                            class="remove-product">
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- 3rd -->
+                                        <tr class="product">
+                                            <td data-th="Product">
+                                                <div class="row">
+                                                    <div class="col-md-3 text-left">
+                                                        <img src="https://via.placeholder.com/250x250/5fa9f8/ffffff"
+                                                            alt=""
+                                                            class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                                    </div>
+                                                    <div class="col-md-9 text-left mt-sm-2">
+                                                        <h4>Team Pennant</h4>
+                                                        <p class="font-weight-light">Brand &amp; Name</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td data-th="Price" class="product-price">17.99</td>
+                                            <td data-th="Quantity">
+                                                <div class="product-quantity">
+                                                    <input type="number"
+                                                        class="form-control form-control-lg text-center" value="0"
+                                                        min="0">
+                                                </div>
+                                            </td>
+                                            <td data-th="Total" class="product-line-price">0.00</td>
+                                            <td class="actions" data-th="">
+                                                <div class="text-right">
+                                                    <button
+                                                        class="btn btn-white border-secondary bg-white btn-md mb-2 product-removal">
+                                                        <img src="../icons/trash-fill.svg" alt="trash-fill-svg"
+                                                            class="remove-product">
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- 4th -->
+                                        <tr class="product">
+                                            <td data-th="Product">
+                                                <div class="row">
+                                                    <div class="col-md-3 text-left">
+                                                        <img src="https://via.placeholder.com/250x250/5fa9f8/ffffff"
+                                                            alt=""
+                                                            class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                                    </div>
+                                                    <div class="col-md-9 text-left mt-sm-2">
+                                                        <h4>Team Picture</h4>
+                                                        <p class="font-weight-light">Brand &amp; Name</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td data-th="Price" class="product-price">29.99</td>
+                                            <td data-th="Quantity">
+                                                <div class="product-quantity">
+                                                    <input type="number"
+                                                        class="form-control form-control-lg text-center" value="0"
+                                                        min="0">
+                                                </div>
+                                            </td>
+                                            <td data-th="Total" class="product-line-price">0.00</td>
+                                            <td class="actions" data-th="">
+                                                <div class="text-right">
+                                                    <button
+                                                        class="btn btn-white border-secondary bg-white btn-md mb-2 product-removal">
+                                                        <img src="../icons/trash-fill.svg" alt="trash-fill-svg"
+                                                            class="remove-product">
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- 5th -->
+                                        <tr class="product">
+                                            <td data-th="Product">
+                                                <div class="row">
+                                                    <div class="col-md-3 text-left">
+                                                        <img src="https://via.placeholder.com/250x250/5fa9f8/ffffff"
+                                                            alt=""
+                                                            class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                                    </div>
+                                                    <div class="col-md-9 text-left mt-sm-2">
+                                                        <h4>Team Jersey</h4>
+                                                        <p class="font-weight-light">Brand &amp; Name</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td data-th="Price" class="product-price">199.99</td>
+                                            <td data-th="Quantity">
+                                                <div class="product-quantity">
+                                                    <input type="number"
+                                                        class="form-control form-control-lg text-center" value="0"
+                                                        min="0">
+                                                </div>
+                                            </td>
+                                            <td data-th="Total" class="product-line-price">0.00</td>
+                                            <td class="actions" data-th="">
+                                                <div class="text-right">
+                                                    <button
+                                                        class="btn btn-white border-secondary bg-white btn-md mb-2 product-removal">
+                                                        <img src="../icons/trash-fill.svg" alt="trash-fill-svg"
+                                                            class="remove-product">
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <!-- END OF TABLE BODY -->
+                                </table>
+                                <div class="float-right text-right">
+                                    <div class="totals-item">
+                                        <label>Subtotal</label>
+                                        <div class="totals-value" id="cart-subtotal">0.00</div>
+                                    </div>
+                                    <div class="totals-item">
+                                        <label>Tax (5%)</label>
+                                        <div class="totals-value" id="cart-tax">0.00</div>
+                                    </div>
+                                    <div class="totals-item totals-item-total">
+                                        <label>Grand Total</label>
+                                        <div class="totals-value" id="cart-total">0.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </section>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
     
 
     <!-- Bootstrap Javascript -->

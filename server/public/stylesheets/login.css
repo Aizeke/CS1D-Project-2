@@ -1,9 +1,18 @@
+/*
+*********************************************************************************************************
+@IMPORTS - used to import the code required for the css to work.
+*********************************************************************************************************
+*/
+/*Importing the Open Sans Font from Google API*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap');
+:root
+{
+--mainBG: url("../images/adminLoginBackground.png");
+}
+
 
 /* BASIC */
 
-html {
-    background-color: #56baed;
-  }
   
   body {
     font-family: "Poppins", sans-serif;
@@ -44,14 +53,11 @@ html {
   #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background: #fff;
     padding: 30px;
     width: 90%;
     max-width: 450px;
     position: relative;
     padding: 0px;
-    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     text-align: center;
   }
   
@@ -244,8 +250,6 @@ html {
     width: 100%;
   }
   
-  
-  
   /* OTHERS */
   
   *:focus {
@@ -256,3 +260,24 @@ html {
     width:60%;
   }
   
+  body
+{
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%), 
+  var(--mainBG)!important;
+    background-position: center;
+    background-size: cover;
+  }
+
+img#icon,
+.mr-2, .mx-2
+  {
+    filter: invert();
+  }
+
+#adminLoginTitle  {
+  color: #FFF;
+  font-weight: 900;
+  font-family: 'Poppins' ;
+  margin-top: 5px;
+  padding-top: 5px;
+}

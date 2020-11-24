@@ -1,6 +1,6 @@
 # NFL Football Planner
 
-![](https://i.imgur.com/1QpCYAk.png)
+![](https://i.imgur.com/1RU0ice.png)
 
 * Note: Updated with the most recent picture.
 
