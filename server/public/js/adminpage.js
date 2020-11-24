@@ -6,17 +6,17 @@ $(document).ready(function () {
     url: '/distance/all',
     success: function (res) {
       nflDistanceArr = res
-      buildTable(nflDistanceArr)
+      buildDistanceTable(nflDistanceArr)
     }
   })
 })
 
-function buildTable (data) {
+function buildDistanceTable (data) {
   const table = $('#nflDistance')
 
   for (let i = 0; i < data.length; i++) {
-    const row = `<tr> 
-                  <td>${data[i].id}</td>
+    const row = `<tr>
+                  <th scope="row">${data[i].id}</th>
                   <td>${data[i].distance}</td>
                   <td>${data[i].beginningstadium}</td>
                   <td>${data[i].teamname}</td>
