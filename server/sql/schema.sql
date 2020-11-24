@@ -17,7 +17,7 @@ CREATE TABLE nfldistances (
 
 -- Create Table for Information
 CREATE TABLE nflinformation (
-     id INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT,
     conference TEXT NOT NULL,
     division TEXT NOT NULL,
     stadiumname TEXT NOT NULL,

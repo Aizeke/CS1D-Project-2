@@ -1,0 +1,9 @@
+#tableFilter {
+    float: left;
+    margin: 8px 5px 8px 0;
+}
+
+#tableFilter, button {
+    color: white;
+    text-decoration: none;
+}
