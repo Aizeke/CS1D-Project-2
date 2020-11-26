@@ -14,4 +14,8 @@ router.get('/admin', (req, res) => {
   res.render('admin')
 })
 
+router.get('/travel', (req, res) => {
+  res.render('travel')
+})
+
 module.exports = router

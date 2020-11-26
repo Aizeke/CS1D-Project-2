@@ -16,7 +16,8 @@ $(document).ready(function () {
     <th class="sortTH" scope="col" data-column="beginningstadium" data-order="desc"">Beginning Stadium &#9650</th>
     <th class="sortTH" scope="col" data-column="teamname" data-order="desc"">Team Name &#9650</th>
     <th class="sortTH" scope="col" data-column="endingstadium" data-order="desc"">Ending Stadium &#9650</th>
-    <th></th>`
+    <th><button type="button" id="addDistanceEntry"class="btn btn-primary">&#128221</button></th>
+    `
 
     distanceTH.append(th)
 
@@ -49,7 +50,7 @@ $(document).ready(function () {
     <th class="sortTH" scope="col" data-column="stadiumrooftype" data-order="desc">Stadium Roof Type &#9650</th>
     <th class="sortTH" scope="col" data-column="location" data-order="desc">Location &#9650</th>
     <th class="sortTH" scope="col" data-column="dateopened" data-order="desc">Date Opened &#9650</th>
-    <th></th>`
+    <th><button type="button" id="addInformationEntry"class="btn btn-primary">&#128221</button></th>`
 
     informationTH.append(th)
 
@@ -59,9 +60,6 @@ $(document).ready(function () {
       success: function (res) {
         nflInformationArr = res
         buildInformationTable(nflInformationArr)
-
-        console.log(nflInformationArr)
-        console.log(nflDistanceArr)
       }
     })
   })
@@ -112,7 +110,7 @@ $(document).ready(function () {
   })
 
   $('#nflDistance').on('click', '.deleteRow', function () {
-    if (confirm('Detele the Entry?')) {
+    if (confirm('Delete the Entry?')) {
       $.ajax({
         method: 'DELETE',
         url: '/distance/delete/' + $(this).data('id'),
@@ -124,7 +122,7 @@ $(document).ready(function () {
   })
 
   $('#nflInformation').on('click', '.deleteRow', function () {
-    if (confirm('Detele the Entry?')) {
+    if (confirm('Delete the Entry?')) {
       $.ajax({
         method: 'DELETE',
         url: '/information/delete/' + $(this).data('id'),
@@ -133,6 +131,14 @@ $(document).ready(function () {
         }
       })
     }
+  })
+
+  $('#distanceTH').on('click', '#addDistanceEntry', function () {
+    console.log("HELLO I WAS CLICKED")
+  })
+
+  $('#informationTH').on('click', '#addInformationEntry', function () {
+    console.log("HELLO I WAS CLICKED")
   })
 })
 
@@ -188,7 +194,7 @@ function buildInformationTable (data) {
                   <td>${data[i].stadiumrooftype}</td>
                   <td>${data[i].location}</td>
                   <td>${data[i].dateopened}</td>
-                  <th class="deleteRow" data-id=${data[i].id}>&#128465</td>
+                  <th class="deleteRow" data-id=${data[i].id}>&#128465</th>
               </tr>`
     table.append(row)
   }
