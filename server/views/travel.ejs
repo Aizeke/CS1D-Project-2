@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<%- include('include/travel'); %>
+<html lang="en">
+
+<body>
+
+    <!-- NAV BAR SECTION -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">NFL Football</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/travel">Trip Planner</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <section>
+        <!-- MAPBOX API -->
+        <div class="mapbox relative mt-5">
+            <div id='map'></div>
+        </div>
+        <!-- END OF MAPS -->
+
+        <section class="center container" id="prompt">
+            <div class="row ml-2 justify-content-center">
+                <div class="col-md-6">
+                    <h1>Select A Custom Trip</h1>
+                    <h4>Sort By The Following</h4>
+                    <!-- CUSTOM TRIP -->
+                    <div class="row my-1">
+                        <!-- Conference -->
+                        <div class="col-md-6">
+                            <label for="conference">Conference</label>
+                            <select class="form-control form-control-sm" id="conference">
+                                <option>American Football Conference</option>
+                                <option>National Football Conference</option>
+                            </select>
+                        </div>
+                        <!-- Division -->
+                        <div class="col-md-6">
+                            <label for="division">Division</label>
+                            <select class="form-control form-control-sm" id="division">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option>AFC East</option>
+                                <option>AFC North</option>
+                                <option>AFC South</option>
+                                <option>AFC West</option>
+                                <option>NFC East</option>
+                                <option>NFC North</option>
+                                <option>NFC South</option>
+                                <option>NFC West</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- STADIUM NAME -->
+                    <div class="row my-1">
+                        <div class="col-md-6">
+                            <label for="stadiumname">Stadium Name</label>
+                            <select class="form-control form-control-sm" id="stadiumname">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option>Gillette Stadium</option>
+                                <option>Hard Rock Stadium</option>
+                                <option>Heinz Field</option>
+                                <option>Lambeau Field</option>
+                                <option>Levis Stadium</option>
+                                <option>Lincoln Financial Field</option>
+                                <option>Lucas Oil Stadium</option>
+                                <option>M&T Bank Stadium</option>
+                                <option>Mercedes-Benz Stadium</option>
+                                <option>Mercedes-Benz Superdome</option>
+                                <option>MetLife Stadium</option>
+                                <option>Nissan Stadium</option>
+                                <option>NRG Stadium</option>
+                                <option>Paul Brown Stadium</option>
+                                <option>Raymond James Stadium</option>
+                                <option>SoFi Stadium</option>
+                                <option>Soldier Field</option>
+                                <option>State Farm Stadium</option>
+                                <option>TIAA Bank Field</option>
+                                <option>U.S. Bank Stadium</option>
+                            </select>
+                        </div>
+                        <!-- SEATING CAPACITY -->
+                        <div class="col-md-6">
+                            <label for="seatingCapacity">Seating Capacity</label>
+                            <select class="form-control form-control-sm" id="seatingCapacity">
+                                <option value="ASC">Ascending</option>
+                                <option value="DESC">Descending</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <!-- SURFACE TYPE -->
+                        <div class="col-md-6">
+                            <label for="surfaceType">Surface Type</label>
+                            <select class="form-control form-control-sm" id="surfaceType">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option>Bermuda Grass</option>
+                                <option>Desso GrassMaster</option>
+                                <option>FieldTurf Classic HD</option>
+                                <option>FieldTurf Revolution</option>
+                                <option>Hellas Matrix Turf</option>
+                                <option>Kentucky Bluegrass</option>
+                                <option>Platinum TE Paspalum</option>
+                                <option>UBU Sports Speed Series S5-M Synthetic Turf</option>
+                            </select>
+                        </div>
+                        <!-- TEAM NAME -->
+                        <div class="col-md-6">
+                            <label for="teamname">Team Name</label>
+                            <select class="form-control form-control-sm" id="teamname">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option>Arizona Cardinals</option>
+                                <option>Atlanta Falcons</option>
+                                <option>Baltimore Ravens</option>
+                                <option>Buffalo Bills</option>
+                                <option>Carolina Panthers</option>
+                                <option>Chicago Bears</option>
+                                <option>Cincinnati Bengals</option>
+                                <option>Cleveland Browns</option>
+                                <option>Dallas Cowboys</option>
+                                <option>Denver Broncos</option>
+                                <option>Detroit Lions</option>
+                                <option>Green Bay Packers</option>
+                                <option>Houston Texans</option>
+                                <option>Indianapolis Colts</option>
+                                <option>Jacksonville Jaguars</option>
+                                <option>Kansas City Chiefs</option>
+                                <option>Las Vegas Raiders</option>
+                                <option>Los Angeles Chargers</option>
+                                <option>Los Angeles Rams</option>
+                                <option>Miami Dolphins</option>
+                                <option>Minnesota Vikings</option>
+                                <option>New England Patriots</option>
+                                <option>New Orleans Saints</option>
+                                <option>New York Giants</option>
+                                <option>New York Jets</option>
+                                <option>Philadelphia Eagles</option>
+                                <option>Pittsburgh Steelers</option>
+                                <option>San Francisco 49ers</option>
+                                <option>Seattle Seahawks</option>
+                                <option>Tampa Bay Buccaneers</option>
+                                <option>Tennessee Titans</option>
+                                <option>Washington Football Team</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <!-- STADIUM ROOF TYPE -->
+                        <div class="col-md-6">
+                            <label for="stadiumrooftype">Stadium Roof Type</label>
+                            <select class="form-control form-control-sm" id="stadiumrooftype">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option>Fixed</option>
+                                <option>Open</option>
+                                <option>Retractable</option>
+                            </select>
+                        </div>
+                        <!-- LOCATION -->
+                        <div class="col-md-6">
+                            <label for="location">Location</label>
+                            <select class="form-control form-control-sm" id="location">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option>Arlington, Texas</option>
+                                <option>Atlanta, Georgia</option>
+                                <option>Baltimore, Maryland</option>
+                                <option>Charlotte, North Carolina</option>
+                                <option>Chicago, Illinois</option>
+                                <option>Cincinnati, Ohio</option>
+                                <option>Cleveland, Ohio</option>
+                                <option>Denver, Colorado</option>
+                                <option>Detroit, Michigan</option>
+                                <option>East Rutherford, New Jersey</option>
+                                <option>Foxborough, Massachusetts</option>
+                                <option>Glendale, Arizona</option>
+                                <option>Green Bay, Wisconsin</option>
+                                <option>Houston, Texas</option>
+                                <option>Indianapolis, Indiana</option>
+                                <option>Inglewood, California</option>
+                                <option>Jacksonville, Florida</option>
+                                <option>Kansas City, Missouri</option>
+                                <option>Landover, Maryland</option>
+                                <option>Miami Gardens, Florida</option>
+                                <option>Minneapolis, Minnesota</option>
+                                <option>Nashville, Tennessee</option>
+                                <option>New Orleans, Louisiana</option>
+                                <option>Orchard Park, New York</option>
+                                <option>Paradise, Nevada</option>
+                                <option>Philadelphia, Pennsylvania</option>
+                                <option>Pittsburgh, Pennsylvania</option>
+                                <option>Santa Clara, California</option>
+                                <option>Seattle, Washington</option>
+                                <option>Tampa, Florida</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <!-- DATE OPENED -->
+                        <div class="col-md-6">
+                            <label for="dateopened">Date Opened</label>
+                            <select class="form-control form-control-sm" id="dateopened">
+                                <option value="ASC">Ascending</option>
+                                <option value="DESC">Descending</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mt-4">
+                            <button type="button" class="btn btn-lg btn-block btn-success"
+                                id="submitStartChoices">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- PRE SET TRIPS -->
+                    <h1>Or Select From Trips Below</h1>
+                    <h4>Select One Or More</h4>
+                    <div class="row my-3">
+                        <div class="col-md-12">
+                            <h4>Shortest Trip Starting At:</h4>
+                            <select id="shortestTripByStadium" class="loadStadiumNameOptions"></select>
+                            <button type="button" class="btn btn-success" id="shortestTrip">Choose Trip</button>
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-md-12">
+                            <h4>Starting with Green Bay Packers<br>Choose Ending Team:</h4>
+                            <select id="greanbaypackers" class="loadTeamNameOptions"></select>
+                            <button type="button" class="btn btn-success" id="greenbaypackersTrip">Choose Trip</button>
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-md-12">
+                            <h4>Starting with New England Patriots<br>Choose Ending Team:</h4>
+                            <select id="newenglandpatriots" class="loadTeamNameOptions"></select>
+                            <button type="button" class="btn btn-success" id="newenglandpatriots">Choose Trip</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="floating display-none">
+            <form class="container">
+                <h1>DISPLAY TRIP INFO HERE</h1>
+                <div class="row">
+                    <div class="badges col-md-12"></div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <script src="js/travel.js"></script>
+</body>
+
+</html>

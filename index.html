@@ -62,6 +62,7 @@ NFL Football Planner HTML - Ver: 0.1
     <iframe id="expressApp" class="expressApp" frameborder="0"></iframe>
     <!-- Server Script -->
     <script>
+        require('dotenv').config({path:__dirname + '/node_modules/dotenv/types/index.d.ts'})
         window.$ = window.jQuery = require("./node_modules/jquery/dist/jquery.js");
 
         const { ipcRenderer } = require("electron"),
@@ -139,7 +140,7 @@ NFL Football Planner HTML - Ver: 0.1
                     clearInterval(checkServerRunning);
                 }
             });
-        }, 800);
+        }, 1500);
     </script>
 </body>
 
