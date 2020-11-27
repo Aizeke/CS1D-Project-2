@@ -1,7 +1,7 @@
 $(document).ready(function () {
   // API KEYS
   // MAP BOX
-  mapboxgl.accessToken = ''
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYWl6ZWtlIiwiYSI6ImNrMnAyNWIyZTAxMHczY3A0azFucHJyMzEifQ.eaBU6RYrSCwd079_pGSV6A'
   // DATA
   let informationArr = []
   let distanceArr = []
@@ -35,6 +35,8 @@ $(document).ready(function () {
   $('#submitStartChoices').click(function () {
     $('.floating').removeClass('display-none')
     $('#prompt').addClass('display-none')
+
+    loadPills()
 
     geojson.features.forEach(function (marker) {
       // create a HTML element for each feature
@@ -116,6 +118,23 @@ const loadTeamNames = function (data) {
   }
 
   setSelectPickerData(teamTable)
+}
+
+const loadPills = function () {
+  const container = $('.badges')
+
+  const badgeHTML = `
+  <span class="badge badge-pill badge-dark" value="${$('#conference').val()}">${$('#conference').val()} &#x2715</span>
+  <span class="badge badge-pill badge-dark" value="${$('#division').val()}">${$('#division').val()} &#x2715</span>
+  <span class="badge badge-pill badge-dark" value="${$('#stadiumname').val()}">${$('#stadiumname').val()} &#x2715</span>
+  <span class="badge badge-pill badge-dark" value="${$('#seatingCapacity').val()}">${$('#seatingCapacity').val()} &#x2715</span>
+  <span class="badge badge-pill badge-dark" value="${$('#surfaceType').val()}">${$('#surfaceType').val()} &#x2715</span>
+  <span class="badge badge-pill badge-dark" value="${$('#teamname').val()}">${$('#teamname').val()} &#x2715</span>
+  <span class="badge badge-pill badge-dark" value="${$('#stadiumrooftype').val()}">${$('#stadiumrooftype').val()} &#x2715</span>
+  <span class="badge badge-pill badge-dark" value="${$('#location').val()}">${$('#location').val()} &#x2715</span>
+  <span class="badge badge-pill badge-dark" value="${$('#dateopened').val()}">${$('#dateopened').val()} &#x2715</span>`
+
+  container.append(badgeHTML)
 }
 
 /**

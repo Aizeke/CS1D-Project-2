@@ -48,6 +48,13 @@ nav { z-index: 999;}
     left: 104px;
 }
 
+.badge-pill {
+    font-size: 12px;
+    padding: 6px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
 #prompt {
     color: #fff;
     font-weight: 300;
