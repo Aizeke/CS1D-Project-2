@@ -32,6 +32,7 @@ $(document).ready(function () {
   })
 
   // ON CLICK FUNCTIONS
+
   $('#submitStartChoices').click(function () {
     $('.floating').removeClass('display-none')
     $('#prompt').addClass('display-none')
@@ -52,6 +53,15 @@ $(document).ready(function () {
     })
   })
 
+  $('#greenbaypackersTrip').click(function () {
+    const list = buildGraph(informationArr, distanceArr, $('select#greenbaypackers option:checked').val().trim())
+
+    geocoding(list)
+
+    $('.floating').removeClass('display-none')
+    $('#prompt').addClass('display-none')
+  })
+
   var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/aizeke/ckhy7syeo1js519pkeqdqfm9r', // stylesheet location
@@ -68,7 +78,7 @@ $(document).ready(function () {
     for (let i = 0; i < data.length; i++) {
       $.ajax({
         method: 'GET',
-        url: 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + data[i].stadiumname.trim() + '.json?access_token=' + mapboxgl.accessToken + '&limit=1',
+        url: 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + data[i].stadiumname + '.json?access_token=' + mapboxgl.accessToken + '&limit=1',
         success: function (res) {
           for (let i = 0; i < res.features.length; i++) {
             const tempFeatures = {
@@ -143,7 +153,6 @@ const loadPills = function () {
  */
 const setSelectPickerData = function (element) {
   element.addClass('selectpicker')
-  element.attr('multiple', 'multiple')
   element.data('live-search', true)
   element.data('actions-box', true)
   element.data('width', 'fit')
@@ -151,4 +160,39 @@ const setSelectPickerData = function (element) {
   element.data('size', 5)
 
   $('.selectpicker').selectpicker('refresh')
+}
+
+const buildGraph = function (stadium, distance, selectedData) {
+  const tempArr = []
+  const graph = new Graph()
+  let result
+
+  stadium.forEach(element => {
+    tempArr.push(element.stadiumname)
+  })
+  const uniqueSet = new Set(tempArr)
+
+  const backToArray = [...uniqueSet]
+
+  backToArray.sort()
+
+  backToArray.forEach(element => {
+    graph.addVertex(element)
+  })
+
+  distance.forEach(element => {
+    console.log(element.beginningstadium, element.endingstadium, element.distance)
+    graph.addEdge(element.beginningstadium, element.endingstadium, element.distance)
+  })
+
+  stadium.forEach(element => {
+    if (element.teamname.trim() === selectedData) {
+      graph.dijkstra('Lambeau Field')
+      result = graph.getDijkstraPath(element.stadiumname)
+    }
+  })
+
+  console.log(result)
+
+  return result
 }
