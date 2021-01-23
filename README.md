@@ -11,7 +11,6 @@ The intent of this program is to store given NFL information into an ordered or 
 * **Daniel Navarro** - [Sakezone](https://github.com/Sakezone)
 * **Isaac Guido** - [Aizeke](https://github.com/Aizeke)
 * **Lamson Bui** - [Lamson555](https://github.com/Lamson555)
-* **Esteban Cruz**j - [EstebanCruz01](https://github.com/EstebanCruz01)
 
 ## Software Requirements(Developtment):
 * **Electron** - used for creating the GUI of the program.
